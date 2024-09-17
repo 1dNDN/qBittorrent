@@ -1355,9 +1355,7 @@ window.qBittorrent.DynamicTable ??= (() => {
                 const hasMetadata = row["full_data"].has_metadata;
                 const isPrivate = this.getRowValue(row);
                 const string = hasMetadata
-                    ? (false
-                        ? "QBT_TR(Yes)QBT_TR[CONTEXT=PropertiesWidget]"
-                        : "QBT_TR(No)QBT_TR[CONTEXT=PropertiesWidget]")
+                    ? ("QBT_TR(No)QBT_TR[CONTEXT=PropertiesWidget]")
                     : "QBT_TR(N/A)QBT_TR[CONTEXT=PropertiesWidget]";
                 td.textContent = string;
                 td.title = string;
