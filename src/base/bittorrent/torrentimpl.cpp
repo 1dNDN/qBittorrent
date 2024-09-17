@@ -428,7 +428,7 @@ QString TorrentImpl::comment() const
 
 bool TorrentImpl::isPrivate() const
 {
-    return false;
+    return m_torrentInfo.isPrivate();
 }
 
 qlonglong TorrentImpl::totalSize() const

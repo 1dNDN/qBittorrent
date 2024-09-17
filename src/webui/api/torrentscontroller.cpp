@@ -205,7 +205,7 @@ namespace
         const int disabled = 0;
 
         const QString privateMsg {QCoreApplication::translate("TrackerListWidget", "This torrent is private")};
-        const bool isTorrentPrivate = false;
+        const bool isTorrentPrivate = torrent->isPrivate();
 
         const QJsonObject dht
         {
@@ -457,7 +457,7 @@ void TorrentsController::propertiesAction()
     const qreal ratio = torrent->realRatio();
     const qreal popularity = torrent->popularity();
     const bool hasMetadata = torrent->hasMetadata();
-    const bool isPrivate = false;
+    const bool isPrivate = torrent->isPrivate();
 
     const QJsonObject ret
     {
@@ -493,7 +493,7 @@ void TorrentsController::propertiesAction()
         {KEY_PROP_PIECE_SIZE, torrent->pieceLength()},
         {KEY_PROP_PIECES_HAVE, torrent->piecesHave()},
         {KEY_PROP_CREATED_BY, torrent->creator()},
-        {KEY_PROP_IS_PRIVATE, false}, // used for maintaining backward compatibility
+        {KEY_PROP_IS_PRIVATE, torrent->isPrivate()}, // used for maintaining backward compatibility
         {KEY_PROP_PRIVATE, (hasMetadata ? isPrivate : QJsonValue())},
         {KEY_PROP_ADDITION_DATE, Utils::DateTime::toSecsSinceEpoch(torrent->addedTime())},
         {KEY_PROP_LAST_SEEN, Utils::DateTime::toSecsSinceEpoch(torrent->lastSeenComplete())},

@@ -189,6 +189,12 @@ bool GUIAddTorrentManager::processTorrent(const QString &source, const BitTorren
             torrent->setMetadata(*torrentDescr.info());
         }
 
+        if (torrent->isPrivate() || (hasMetadata && torrentDescr.info()->isPrivate()))
+        {
+            handleDuplicateTorrent(source, torrent, tr("Trackers cannot be merged because it is a private torrent"));
+        }
+        else
+        {
             bool mergeTrackers = btSession()->isMergeTrackersEnabled();
             if (Preferences::instance()->confirmMergeTrackers())
             {
@@ -203,6 +209,7 @@ bool GUIAddTorrentManager::processTorrent(const QString &source, const BitTorren
                 torrent->addTrackers(torrentDescr.trackers());
                 torrent->addUrlSeeds(torrentDescr.urlSeeds());
             }
+        }
 
         return false;
     }

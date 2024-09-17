@@ -198,6 +198,13 @@ bool AddTorrentManager::processTorrent(const QString &source, const BitTorrent::
             return false;
         }
 
+        const bool isPrivate = torrent->isPrivate() || (hasMetadata && torrentDescr.info()->isPrivate());
+        if (isPrivate)
+        {
+            handleDuplicateTorrent(source, torrent, tr("Trackers cannot be merged because it is a private torrent"));
+            return false;
+        }
+
         // merge trackers and web seeds
         torrent->addTrackers(torrentDescr.trackers());
         torrent->addUrlSeeds(torrentDescr.urlSeeds());

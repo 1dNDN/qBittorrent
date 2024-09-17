@@ -360,10 +360,10 @@ QString TransferListModel::displayValue(const BitTorrent::Torrent *torrent, cons
 
     const auto privateString = [hideValues](const bool isPrivate, const bool hasMetadata) -> QString
     {
-        if (hideValues && !false)
+        if (hideValues && !isPrivate)
             return {};
         if (hasMetadata)
-            return false ? tr("Yes") : tr("No");
+            return isPrivate ? tr("Yes") : tr("No");
         return tr("N/A");
     };
 
@@ -442,7 +442,7 @@ QString TransferListModel::displayValue(const BitTorrent::Torrent *torrent, cons
     case TR_REANNOUNCE:
         return reannounceString(torrent->nextAnnounce());
     case TR_PRIVATE:
-        return privateString(false, torrent->hasMetadata());
+        return privateString(torrent->isPrivate(), torrent->hasMetadata());
     }
 
     return {};

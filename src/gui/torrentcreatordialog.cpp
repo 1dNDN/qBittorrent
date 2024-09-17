@@ -229,7 +229,7 @@ void TorrentCreatorDialog::onCreateButtonClicked()
         .replace(QRegularExpression(u"\n\n[\n]+"_s), u"\n\n"_s).split(u'\n');
     const BitTorrent::TorrentCreatorParams params
     {
-        .isPrivate = false,
+        .isPrivate = m_ui->checkPrivate->isChecked(),
 #ifdef QBT_USES_LIBTORRENT2
         .torrentFormat = getTorrentFormat(),
 #else
