@@ -240,8 +240,5 @@ bool TorrentFilter::matchTag(const BitTorrent::Torrent *const torrent) const
 
 bool TorrentFilter::matchPrivate(const BitTorrent::Torrent *const torrent) const
 {
-    if (!m_private)
-        return true;
-
-    return m_private == torrent->isPrivate();
+    return false;
 }

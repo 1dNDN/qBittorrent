@@ -2728,14 +2728,6 @@ bool SessionImpl::addTorrent_impl(const TorrentDescriptor &source, const AddTorr
             return false;
         }
 
-        const bool isPrivate = torrent->isPrivate() || (hasMetadata && source.info()->isPrivate());
-        if (isPrivate)
-        {
-            LogMsg(tr("Detected an attempt to add a duplicate torrent. Existing torrent: %1. Result: %2")
-                    .arg(torrent->name(), tr("Trackers cannot be merged because it is a private torrent")));
-            return false;
-        }
-
         // merge trackers and web seeds
         torrent->addTrackers(source.trackers());
         torrent->addUrlSeeds(source.urlSeeds());

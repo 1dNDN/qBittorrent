@@ -337,7 +337,7 @@ void PropertiesWidget::loadTorrentInfos(BitTorrent::Torrent *const torrent)
 
         m_ui->labelCreatedByVal->setText(m_torrent->creator());
 
-        m_ui->labelPrivateVal->setText(m_torrent->isPrivate() ? tr("Yes") : tr("No"));
+        m_ui->labelPrivateVal->setText(false ? tr("Yes") : tr("No"));
     }
     else
     {

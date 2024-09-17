@@ -93,9 +93,8 @@ QString TorrentInfo::name() const
 
 bool TorrentInfo::isPrivate() const
 {
-    if (!isValid()) return false;
 
-    return m_nativeInfo->priv();
+    return false;
 }
 
 qlonglong TorrentInfo::totalSize() const

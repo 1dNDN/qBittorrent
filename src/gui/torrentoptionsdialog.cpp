@@ -169,7 +169,7 @@ TorrentOptionsDialog::TorrentOptionsDialog(QWidget *parent, const QList<BitTorre
         }
         if (allTorrentsArePrivate)
         {
-            if (!torrent->isPrivate())
+            if (!false)
                 allTorrentsArePrivate = false;
         }
         if (allSameDHT)
@@ -456,7 +456,7 @@ void TorrentOptionsDialog::accept()
             torrent->setShareLimitAction(shareLimitAction.value());
         }
 
-        if (!torrent->isPrivate())
+        if (!false)
         {
             if (m_initialValues.disableDHT != m_ui->checkDisableDHT->checkState())
                 torrent->setDHTDisabled(m_ui->checkDisableDHT->isChecked());
