@@ -313,7 +313,7 @@ void PeerListWidget::showPeerListMenu()
         action->setToolTip(tooltip);
     };
 
-    else if (torrent->isChecking())
+    if (torrent->isChecking())
         disableAction(addNewPeer, tr("Cannot add peers when the torrent is checking"));
     else if (torrent->isQueued())
         disableAction(addNewPeer, tr("Cannot add peers when the torrent is queued"));
