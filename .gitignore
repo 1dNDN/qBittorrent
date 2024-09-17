@@ -8,7 +8,7 @@ src/debug
 src/base/version.h
 CMakeLists.txt.user*
 qbittorrent.pro.user*
-conf.pri
+conf.pri 
 Makefile*
 *.pyc
 *.log
