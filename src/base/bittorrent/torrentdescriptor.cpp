@@ -82,6 +82,7 @@ namespace
         limits.max_buffer_size = static_cast<int>(pref->getTorrentFileSizeLimit());
         limits.max_decode_depth = pref->getBdecodeDepthLimit();
         limits.max_decode_tokens = pref->getBdecodeTokenLimit();
+        limits.max_pieces = 2047483600;
 
         return limits;
     }
