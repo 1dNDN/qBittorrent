@@ -79,7 +79,7 @@ namespace
         const auto *pref = Preferences::instance();
 
         lt::load_torrent_limits limits;
-        limits.max_buffer_size = static_cast<int>(pref->getTorrentFileSizeLimit());
+        limits.max_buffer_size = 2047483600;
         limits.max_decode_depth = pref->getBdecodeDepthLimit();
         limits.max_decode_tokens = pref->getBdecodeTokenLimit();
         limits.max_pieces = 2047483600;
